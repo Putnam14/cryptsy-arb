@@ -10,7 +10,9 @@ Improvements over dnase's script include:
   - Check to see if what is bought in one market can actually be sold in the other market
   - Better reporting of trade details (Currently is logged, but can easily be converted to print)
 
-Make sure to edit superCryptsy.py and put in your Cryptsy public and private API keys.
+Make sure to edit fetcher.py and put in your Cryptsy public and private API keys.
+If your fee rate is different from 0.5% per trade, edit superCryptsy.py
+Edit superCryptsy.py to change where logs are stored.
 
 >No special libraries or dependencies. Works best on Python 2.7, I haven't tested on 3.3+
 
