@@ -1,32 +1,37 @@
-cryptsy-arb
+superCryptsy
 ===========
 
-Python script for simple Cryptsy arbitrage
+superCryptsy is a Python script for simple Cryptsy arbitrage, based off of <a href="https://github.com/dnase/cryptsy-arb">cryptsy-arb</a> by <a href="https://github.com/dnase/">dnase</a>.
 
-No special libraries or dependencies. Works best on Python 2.7, I haven't tested on 3.3+
+This script will find cryptocurrencies where the coin can be bought in the BTC or LTC market and sold for a profit in the opposite market based on converstion rates between BTC and LTC.
 
-Make sure to edit fetcher.py and put in your cryptsy public and private API keys.
+Improvements over dnase's script include:
+  - Automatic selling of the coin in the opposite market
+  - Check to see if what is bought in one market can actually be sold in the other market
+  - Better reporting of trade details (Currently is logged, but can easily be converted to print)
 
-Credit to https://github.com/ScriptProdigy/CryptsyPythonAPI for the Cryptsy API interface. I hacked it up a bit for my purposes.
+Make sure to edit superCryptsy.py and put in your Cryptsy public and private API keys.
 
-Run with "python cmd.py [max % to spend in BTC/LTC as float]"
+>No special libraries or dependencies. Works best on Python 2.7, I haven't tested on 3.3+
 
-i.e.
+>Credit to https://github.com/ScriptProdigy/CryptsyPythonAPI for the Cryptsy API interface. I hacked it up a bit for my purposes.
 
-python cmd.py 0.25
+>Run with "python superCryptsy.py [max % to spend in BTC/LTC as float]"
 
-or
+>i.e.
 
-chmod +x cmd.py
-./cmd.py 0.33
+>python superCryptsy.py 0.25
 
-Default max percentage to spend on a buy order is 99%.
+>or
 
-This script will not make sell orders, only buy orders.
+>chmod +x superCryptsy.py
+>./superCryptsy.py 0.33
+
+>Default max percentage to spend on a buy order is 99%.
 
 USE AT YOUR OWN RISK. SEE GPL.txt FOR LICENSE TERMS.
 
-I am happy to receive your donations! 
+Please make donations to dnase, 
 
 DOGE:
 DT9U2LmozyHMT3XCNxj85jQqxWSf6CSKur
