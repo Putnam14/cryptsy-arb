@@ -6,8 +6,8 @@ ttc = 5
 
 lastFetchTime = 0
 
-cryptsy_pubkey = 'YOUR_PUBLIC_KEY'
-cryptsy_privkey = 'YOUR_PRIVATE_KEY'
+cryptsy_pubkey = 'Public Key' #Enter your Cryptsy Public Key between the apostrophes
+cryptsy_privkey = 'Private Key' #Enter your Cryptsy Private Key between the apostrophes
 
 def fetchMarketData():
     global lastFetchTime
@@ -34,6 +34,16 @@ def getLTCPrice():
     except:
         getLTCPrice()
 
+def getBTCUSD():
+    global cryptsyHandle
+    cryptsyHandle = Cryptsy.Cryptsy(cryptsy_pubkey, cryptsy_privkey)
+    r = cryptsyHandle.getSingleMarketData(2)
+    try:
+        return r['price']
+    except:
+        getBTCUSD()
+
+
 def getBalances():
     global cryptsyHandle
     cryptsyHandle = Cryptsy.Cryptsy(cryptsy_pubkey, cryptsy_privkey)
@@ -44,6 +54,11 @@ def placeOrder(marketid, ordertype, quantity, price):
     global cryptsyHandle
     cryptsyHandle = Cryptsy.Cryptsy(cryptsy_pubkey, cryptsy_privkey)
     return cryptsyHandle.createOrder(marketid, ordertype, quantity, price)
+
+def cancelOrder(marketid):
+    global cryptsyHandle
+    cryptsyHandle = Cryptsy.Cryptsy(cryptsy_pubkey, cryptsy_privkey)
+    return cryptsyHandle.cancelMarketOrders(marketid)
 
 def getCachedTime():
     return (time.time() - lastFetchTime) > ttc
